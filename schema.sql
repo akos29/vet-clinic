@@ -1,9 +1,9 @@
 /* Database schema to keep the structure of entire database. */
 
 CREATE TABLE animals (
-    id INT PRIMARY KEY NOT NULL,
+    id BIGSERIAL PRIMARY KEY NOT NULL,
     name varchar(100) NOT NULL,
     date_of_birth date NOT NULL,
-    escape_attemps INT,
+    escape_attempts INT,
     neutered BOOLEAN,
-    wieght_kg decimal );
+    weight_kg DECIMAL );
