@@ -239,8 +239,6 @@ If you like this project please don't forget to give us a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
 I would like to thank Microverse and anyone who contribute to this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
