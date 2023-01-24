@@ -25,14 +25,33 @@ SELECT * from animals WHERE NOT name='Gabumon';
 SELECT * from animals WHERE weight_kg>=10.4 AND weight_kg<=17.3;
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
+ALTER TABLE animals ADD species VARCHAR(50);
+
+BEGIN;
 UPDATE animals SET species='unspecified';
+SELECT name, species FROM animals;
+ROLLBACK;
+SELECT name, species FROM animals;
 
-UPDATE animals SET species=null WHERE species='unspecified';
-
--- Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
+BEGIN;
 UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
-
--- pokemon for all without species
+SELECT name, species FROM animals;
 UPDATE animals SET species='pokemon' WHERE species IS NULL;
+SELECT name, species FROM animals;
+COMMIT;
+SELECT name, species FROM animals;
 
+BEGIN;
+DELETE FROM animals;
+SELECT name, species FROM animals;
+ROLLBACK;
+SELECT name, species FROM animals;
+
+BEGIN;
 DELETE FROM animals WHERE date_of_birth>'2022-01-01';
+SELECT name, date_of_birth FROM animals;
+SAVEPOINT saveAfterDelete;
+UPDATE animals SET weight_kg = weight_kg * -1;
+
+UPDATE animals SET weight_kg=-1 * (SELECT weight_kg FROM animals) WHERE ;
+
