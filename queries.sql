@@ -33,4 +33,4 @@ UPDATE animals SET species=null WHERE species='unspecified';
 UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
 
 -- pokemon for all without species
-UPDATE animals SET species='pokemon' WHERE specie IS NULL;
+UPDATE animals SET species='pokemon' WHERE species IS NULL;
