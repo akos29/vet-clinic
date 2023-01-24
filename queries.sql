@@ -52,6 +52,23 @@ DELETE FROM animals WHERE date_of_birth>'2022-01-01';
 SELECT name, date_of_birth FROM animals;
 SAVEPOINT saveAfterDelete;
 UPDATE animals SET weight_kg = weight_kg * -1;
+SELECT * FROM animals;
+ROLLBACK TO saveAfterDelete;
+SELECT * FROM animals;
+UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg<0;
+SELECT name, weight_kg FROM animals;
+COMMIT;
 
-UPDATE animals SET weight_kg=-1 * (SELECT weight_kg FROM animals) WHERE ;
+
+-- How many animals are there?
+SELECT COUNT(*) as Number_of_Animals FROM animals;
+-- How many animals have never tried to escape?
+SELECT COUNT(*)  as Number_of_Animals_Never_Tried_To_Scape FROM animals WHERE escape_attempts=0;
+-- What is the average weight of animals?
+SELECT AVG(weight_kg) as Average_weight_of_animals FROM animals;
+-- Who escapes the most, neutered or not neutered animals?
+SELECT COUNT(escape_attempts) AS Animal_escaped_the_most_count, neutered FROM animals GROUP BY neutered;
+-- What is the minimum and maximum weight of each type of animal?
+
+-- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 
