@@ -34,3 +34,5 @@ UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
 
 -- pokemon for all without species
 UPDATE animals SET species='pokemon' WHERE species IS NULL;
+
+DELETE FROM animals WHERE date_of_birth>'2022-01-01';
