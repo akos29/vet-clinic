@@ -41,4 +41,7 @@ CREATE TABLE visits (
   ALTER TABLE animals ADD COLUMN species_id INT REFERENCES species(id);
   ALTER TABLE animals ADD COLUMN owner_id INT REFERENCES owners(id);
 
-  ALTER TABLE animals ADD FOREIGN KEY (species_id) REFERENCES species(id);
+  -- ALTER TABLE animals ADD FOREIGN KEY (species_id) REFERENCES species(id);
+
+  ALTER TABLE specializations 
+  ADD CONSTRAINT vetsPrimaryKey PRIMARY KEY (sid,vid);

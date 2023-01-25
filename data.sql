@@ -37,6 +37,12 @@ INSERT INTO vets (name,age, date_of_graduation) VALUES
 ('Stephanie Mendez',64,'1981-05-4'),
 ('Jack Harkness',45,'2008-06-08');
 
+INSERT INTO specializations (vid,sid) VALUES 
+(1,1),
+(3,1),
+(3,2),
+(4,2);
+
 UPDATE animals SET species_id=1 WHERE name LIKE '%mon';
 SELECT name, species_id FROM animals;
 UPDATE animals SET species_id=1 WHERE species_id IS NULL;
