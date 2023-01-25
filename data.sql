@@ -31,6 +31,12 @@ INSERT INTO species (name) VALUES
 ('Digimon');
 
 
+INSERT INTO vets (name,age, date_of_graduation) VALUES 
+('William Tatcher',45,'2000-04-23'),
+('Maisy Smith',26,'2019-01-17'),
+('Stephanie Mendez',64,'1981-05-4'),
+('Jack Harkness',45,'2008-06-08');
+
 UPDATE animals SET species_id=1 WHERE name LIKE '%mon';
 SELECT name, species_id FROM animals;
 UPDATE animals SET species_id=1 WHERE species_id IS NULL;
@@ -52,3 +58,4 @@ SELECT name, owner_id FROM animals;
 UPDATE animals SET owner_id=5 WHERE name LIKE 'Angemon';
 UPDATE animals SET owner_id=5 WHERE name LIKE 'Boarmon';
 SELECT name, owner_id FROM animals;
+

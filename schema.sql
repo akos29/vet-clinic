@@ -19,6 +19,20 @@ CREATE TABLE species (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR(100) NOT NULL );
 
+CREATE TABLE vets (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  age INT,
+  date_of_graduation DATE );
+
+CREATE TABLE specializations (
+  sid INT REFERENCES species(id),
+  vid INT REFERENCES vets(id) );
+
+CREATE TABLE visits (
+  aid INT REFERENCES animals(id),
+  vid INT REFERENCES vets(id) );
+
   ALTER TABLE animals 
   ADD CONSTRAINT animalsPrimaryKey PRIMARY KEY (id);
 
