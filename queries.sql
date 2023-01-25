@@ -75,7 +75,24 @@ SELECT MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight, species FROM 
 SELECT AVG(escape_attempts) as Average_Escape_Attempt, species FROM animals WHERE date_of_birth > '1990-01-01' AND date_of_birth < '2000-12-31' GROUP BY species;
 
 
-UPDATE animals SET species_id=2 WHERE name LIKE '%mon';
+UPDATE animals SET species_id=1 WHERE name LIKE '%mon';
 SELECT name, species_id FROM animals;
 UPDATE animals SET species_id=1 WHERE species_id IS NULL;
 SELECT name, species_id FROM animals;
+
+
+UPDATE animals SET owner_id=1 WHERE name LIKE 'Agumon';
+SELECT name, owner_id FROM animals;
+UPDATE animals SET owner_id=2 WHERE name LIKE 'Gabumon';
+UPDATE animals SET owner_id=2 WHERE name LIKE 'Pikachu';
+SELECT name, owner_id FROM animals;
+UPDATE animals SET owner_id=3 WHERE name LIKE 'Devimon';
+UPDATE animals SET owner_id=3 WHERE name LIKE 'Plantmon';
+SELECT name, owner_id FROM animals;
+UPDATE animals SET owner_id=4 WHERE name LIKE 'Charmander';
+UPDATE animals SET owner_id=4 WHERE name LIKE 'Squirtle';
+UPDATE animals SET owner_id=4 WHERE name LIKE 'Blossom';
+SELECT name, owner_id FROM animals;
+UPDATE animals SET owner_id=5 WHERE name LIKE 'Angemon';
+UPDATE animals SET owner_id=5 WHERE name LIKE 'Boarmon';
+SELECT name, owner_id FROM animals;
