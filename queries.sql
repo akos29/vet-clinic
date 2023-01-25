@@ -25,8 +25,6 @@ SELECT * from animals WHERE NOT name='Gabumon';
 SELECT * from animals WHERE weight_kg>=10.4 AND weight_kg<=17.3;
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
-ALTER TABLE animals ADD species VARCHAR(50);
-
 BEGIN;
 UPDATE animals SET species='unspecified';
 SELECT name, species FROM animals;
@@ -60,15 +58,18 @@ SELECT name, weight_kg FROM animals;
 COMMIT;
 
 
--- How many animals are there?
 SELECT COUNT(*) as Number_of_Animals FROM animals;
--- How many animals have never tried to escape?
+
 SELECT COUNT(*)  as Number_of_Animals_Never_Tried_To_Scape FROM animals WHERE escape_attempts=0;
--- What is the average weight of animals?
+
+
 SELECT AVG(weight_kg) as Average_weight_of_animals FROM animals;
--- Who escapes the most, neutered or not neutered animals?
+
+
 SELECT COUNT(escape_attempts) AS Animal_escaped_the_most_count, neutered FROM animals GROUP BY neutered;
--- What is the minimum and maximum weight of each type of animal?
+
+
 SELECT MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight, species FROM animals GROUP BY species;
--- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+
+
 SELECT AVG(escape_attempts) as Average_Escape_Attempt, species FROM animals WHERE date_of_birth > '1990-01-01' AND date_of_birth < '2000-01-01' GROUP BY species;
