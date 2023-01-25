@@ -45,7 +45,7 @@ INSERT INTO specializations (vid,sid) VALUES
 
 INSERT INTO visits (aid,vid,date_of_visits) VALUES 
 (23,1,'2020-05-24'),
-(23,3,'2020-05-24'),
+(23,3,'2020-07-22'),
 (24,4,'02-02-2021'),
 (25,2,'05-01-2020'),
 (25,2,'08-03-2020'),
