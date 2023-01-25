@@ -73,3 +73,9 @@ SELECT MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight, species FROM 
 
 
 SELECT AVG(escape_attempts) as Average_Escape_Attempt, species FROM animals WHERE date_of_birth > '1990-01-01' AND date_of_birth < '2000-12-31' GROUP BY species;
+
+
+UPDATE animals SET species_id=2 WHERE name LIKE '%mon';
+SELECT name, species_id FROM animals;
+UPDATE animals SET species_id=1 WHERE species_id IS NULL;
+SELECT name, species_id FROM animals;
