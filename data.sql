@@ -37,13 +37,16 @@ INSERT INTO vets (name,age, date_of_graduation) VALUES
 ('Stephanie Mendez',64,'1981-05-4'),
 ('Jack Harkness',45,'2008-06-08');
 
-INSERT INTO specializations (vid,sid) VALUES 
-(1,1),
-(3,1),
-(3,2),
-(4,2);
+INSERT INTO specializations (vets_id,sid) VALUES 
+((SELECT id FROM vets WHERE name = 'William Tatcher'), (SELECT id FROM species WHERE name = 'Pokemon')),
+((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), (SELECT id FROM species WHERE name = 'Pokemon')),
+((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), (SELECT id FROM species WHERE name = 'Digimon')),
+((SELECT id FROM vets WHERE name = 'Jack Harkness'), (SELECT id FROM species WHERE name = 'Digimon'));
+-- (3,1),
+-- (3,2),
+-- (4,2);
 
-INSERT INTO visits (aid,vid,date_of_visits) VALUES 
+INSERT INTO visits (animal_id,vets_id,date_of_visits) VALUES 
 (23,1,'2020-05-24'),
 (23,3,'2020-07-22'),
 (24,4,'02-02-2021'),
