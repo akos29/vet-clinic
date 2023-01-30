@@ -46,27 +46,7 @@ INSERT INTO specializations (vets_id,sid) VALUES
 -- (3,2),
 -- (4,2);
 
-INSERT INTO visits (animal_id,vets_id,date_of_visits) VALUES 
-(23,1,'2020-05-24'),
-(23,3,'2020-07-22'),
-(24,4,'02-02-2021'),
-(25,2,'05-01-2020'),
-(25,2,'08-03-2020'),
-(25,2,'14-05-2020'),
-(26,3,'04-05-2021'),
-(27,4,'24-02-2021'),
-(28,2,'21-12-2019'),
-(28,1,'10-08-2020'),
-(28,2,'07-04-2021'),
-(29,3,'29-09-2019'),
-(30,4,'03-10-2020'),
-(30,4,'04-11-2020'),
-(31,2,'24-01-2019'),
-(31,2,'15-05-2019'),
-(31,2,'27-02-2020'),
-(31,2,'03-08-2020'),
-(32,3,'24-05-2020'),
-(32,1,'11-01-2021');
+INSERT INTO visits (animal_id, vet_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vet_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
 
 UPDATE animals SET species_id=1 WHERE name LIKE '%mon';
 SELECT name, species_id FROM animals;
@@ -89,4 +69,6 @@ SELECT name, owner_id FROM animals;
 UPDATE animals SET owner_id=5 WHERE name LIKE 'Angemon';
 UPDATE animals SET owner_id=5 WHERE name LIKE 'Boarmon';
 SELECT name, owner_id FROM animals;
+
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
 

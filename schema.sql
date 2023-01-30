@@ -33,15 +33,6 @@ CREATE TABLE specializations (
     FOREIGN KEY(sid) REFERENCES species(id) ON DELETE CASCADE,
     FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE);
 
-CREATE TABLE visits (
-  animal_id INT,
-  vets_id INT, 
-  date_of_visits DATE NOT NULL,
-  PRIMARY KEY (animal_id, vets_id,date_of_visits),
-  CONSTRAINT fk_visit
-    FOREIGN KEY(animal_id) REFERENCES animals(id) ON DELETE CASCADE ,
-    FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE  );
-
   ALTER TABLE animals 
   ADD CONSTRAINT animalsPrimaryKey PRIMARY KEY (id);
 
@@ -49,6 +40,23 @@ CREATE TABLE visits (
 
   ALTER TABLE animals ADD COLUMN species_id INT REFERENCES species(id);
   ALTER TABLE animals ADD COLUMN owner_id INT REFERENCES owners(id);
-  ALTER TABLE visits ADD CONSTRAINT fk_visit_1
-    FOREIGN KEY(animal_id) REFERENCES animals(id) ON DELETE CASCADE ,
-    FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE;
+  
+ 
+-- CREATE TABLE visits (
+--   animal_id INT,
+--   vets_id INT, 
+--   date_of_visits DATE NOT NULL,
+--   PRIMARY KEY (animal_id, vets_id,date_of_visits),
+--   CONSTRAINT fk_visit
+--     FOREIGN KEY(animal_id) REFERENCES animals(id) ON DELETE CASCADE ,
+--     FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE  );
+
+CREATE TABLE visits(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  animal_id INT REFERENCES animals(id),
+  vet_id INT REFERENCES vets(id),
+  date_of_visit DATE,
+  PRIMARY KEY(id)
+);
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
