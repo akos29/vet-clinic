@@ -1,8 +1,6 @@
-# curriculum-databases-projects-template
+# Vet clinic database
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
-
+Simple template for Vet clinic database
 
 ## Getting Started
 
@@ -13,29 +11,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
 
 <a name="readme-top"></a>
-
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-After you're finished please remove all the comments and instructions!
--->
-
 
 <!-- TABLE OF CONTENTS -->
 
@@ -64,7 +39,6 @@ After you're finished please remove all the comments and instructions!
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 [Vet clinic database] <a name="about-project"></a>
-
 
 **[Vet clinic database]** is a relational database for vet clinic. It includes table animal with variety of queries to find result.
 
@@ -97,7 +71,6 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-
 - **[Shows data structure]**
 - **[Query data features]**
 - **[Update data features]**
@@ -107,8 +80,7 @@ After you're finished please remove all the comments and instructions!
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- Coming Soon
-<!-- - [ Live Demo Link](#) -->
+![image](https://user-images.githubusercontent.com/106581139/215474920-804cff87-8ee9-4390-8dc3-fd39c4b864f8.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,6 +172,12 @@ Example:
 - GitHub: [akos](https://github.com/akos29)
 - Twitter: [kbson49](https://twitter.com/Kbson49)
 - LinkedIn: [Kibrewossen](https://www.linkedin.com/in/kibrewossen-yitbarek-bb587a18/)
+
+👤 **Sergiy Shkolnik**
+
+- GitHub: [SergSkol](https://github.com/SergSkol)
+- Twitter: [@sps676](https://twitter.com/sps676)
+- LinkedIn: [SergSkol](https://www.linkedin.com/in/sergskol/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
