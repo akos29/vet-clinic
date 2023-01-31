@@ -43,8 +43,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 **[Vet clinic database]** is a relational database for vet clinic. It includes table animal with variety of queries to find result.
 
 ## Entity Relationship Diagram
-<img width="446" alt="image" src="https://user-images.githubusercontent.com/35809268/215706295-eaec071d-76b3-4f4e-944b-d72ab8d26a34.png">
-
+<img width="647" alt="image" src="https://user-images.githubusercontent.com/35809268/215735912-674f2e14-18bc-4f01-8400-6965088c0a7c.png">
 
 ## 🛠 Built With <a name="built-with"></a>
 
