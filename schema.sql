@@ -1,18 +1,23 @@
 /* Database schema to keep the structure of entire database. */
 
 CREATE TABLE animals (
-  id INT GENERATED ALWAYS AS IDENTITY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   date_of_birth DATE NOT NULL,
   escape_attempts INT,
   neutered BOOLEAN,
-  weight_kg DECIMAL );
-
-  ALTER TABLE animals ADD species VARCHAR(50);
+  weight_kg DECIMAL,
+  species_id INT,
+  owner_id INT,
+  CONSTRAINT fk_animals
+    FOREIGN KEY(species_id) REFERENCES species(id) ON DELETE CASCADE,
+    FOREIGN KEY(owner_id) REFERENCES owners(id) ON DELETE CASCADE
+  );
 
 CREATE TABLE owners (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   full_name VARCHAR(100) NOT NULL,
+  email VARCHAR(120),
   age INT );
 
 CREATE TABLE species ( 
@@ -31,17 +36,9 @@ CREATE TABLE specializations (
   PRIMARY KEY (sid, vets_id),
   CONSTRAINT fk_specializations
     FOREIGN KEY(sid) REFERENCES species(id) ON DELETE CASCADE,
-    FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE);
+    FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE
+);
 
-  ALTER TABLE animals 
-  ADD CONSTRAINT animalsPrimaryKey PRIMARY KEY (id);
-
-  ALTER TABLE animals DROP COLUMN species;
-
-  ALTER TABLE animals ADD COLUMN species_id INT REFERENCES species(id);
-  ALTER TABLE animals ADD COLUMN owner_id INT REFERENCES owners(id);
-  
- 
 -- CREATE TABLE visits (
 --   animal_id INT,
 --   vets_id INT, 
@@ -52,14 +49,16 @@ CREATE TABLE specializations (
 --     FOREIGN KEY(vets_id) REFERENCES vets(id) ON DELETE CASCADE  );
 
 CREATE TABLE visits(
-  id INT GENERATED ALWAYS AS IDENTITY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   animal_id INT REFERENCES animals(id),
   vet_id INT REFERENCES vets(id),
   date_of_visit DATE,
-  PRIMARY KEY(id)
+   CONSTRAINT fk_visits
+    FOREIGN KEY(animal_id) REFERENCES animals(id) ON DELETE CASCADE,
+    FOREIGN KEY(vet_id) REFERENCES vets(id) ON DELETE CASCADE
 );
 
-ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+-- ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 -- Adding Indexes for existing tables 
 
