@@ -9,7 +9,7 @@ CREATE TABLE invoices (
   total_amount decimal,
   generated_at timestamp,
   payed_at timestamp,
-  medical_history_id INT
+  medical_history_id INT REFERENCES medical_histories(id) ON DELETE CASCADE
 );
 
 CREATE TABLE medical_histories (
@@ -42,3 +42,11 @@ CREATE TABLE treatment_history (
     FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id) ON DELETE CASCADE,
     FOREIGN KEY(treatment_id) REFERENCES treatments(id) ON DELETE CASCADE
 );
+
+
+
+CREATE INDEX medical_history_id_asc ON medical_histories(id ASC);
+CREATE INDEX patient_id_asc ON patients(id ASC);
+CREATE INDEX treatments_id_asc ON treatments(id ASC);
+CREATE INDEX invoice_items_id_asc ON invoice_items(invoice_id ASC);
+CREATE INDEX treatment_history_id_asc ON treatment_history(treatment_id ASC);
